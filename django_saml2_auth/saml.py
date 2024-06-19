@@ -260,6 +260,10 @@ def get_saml_client(
             }
         ]
 
+    xmlsec_binary = saml2_auth_settings.get('XMLSEC_BINARY')
+    if xmlsec_binary:
+        saml_settings["xmlsec_binary"] = xmlsec_binary
+
     try:
         sp_config = Saml2Config()
         sp_config.load(saml_settings)
